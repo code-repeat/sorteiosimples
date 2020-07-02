@@ -24,14 +24,16 @@ for i in range(int(quant_names)):
     item = input(f"Item {i}: ")
     box_itens.append(item)
 
-draw_numbers = int(input("Quantos itens você deseja sortear? "))
+draw_numbers = ""
+while True:
+    print("Quantos itens você deseja sortear? ")
+    draw_numbers = int(input())
+    if draw_numbers > len(box_itens):
+        print("Digite um valor menor")
+    else:
+        break
 
-if draw_numbers > len(box_itens):
-    print("Digite um valor menor")
-else:
-    selected = choices(box_itens, k=int(draw_numbers))
-    print(', '.join(selected))
-
-
+selected = choices(box_itens, k=int(draw_numbers))
+print(', '.join(selected))
 
 
